@@ -6,6 +6,7 @@ from .utility import generate_code
 
 # Create your models here.
 
+
 class User(AbstractUser):
     is_resident = models.BooleanField(default=False)
     is_security = models.BooleanField(default=False)
@@ -24,9 +25,9 @@ class Invite(models.Model):
     status = models.BooleanField(default = True)
     house = models.ForeignKey(House, on_delete=models.PROTECT)
 
+
 class Visitor(models.Model):
     first_name = models.CharField(max_length=255, blank=False, null=False)
     last_name = models.CharField(max_length=255, blank=False, null=False)
-    email = models.EmailField(max_length=255, blank=False, null=False)
     phone_number = models.CharField(max_length=11, blank=False, null=False)
     invite= models.ForeignKey(Invite, on_delete=models.PROTECT)
